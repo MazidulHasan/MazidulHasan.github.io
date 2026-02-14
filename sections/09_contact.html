@@ -1,0 +1,99 @@
+  <section id="contact" class="section-animated">
+    <h2>Get In Touch</h2>
+    <p class="section-subtitle">
+      Ready to discuss testing opportunities and collaborate on quality
+      assurance projects.
+    </p>
+
+    <div class="contact-grid">
+      <!-- Left Side: Contact Information -->
+      <div class="contact-info-container">
+        <!-- Direct Contact Buttons -->
+        <div class="contact-actions">
+          <a href="mailto:md.mazidulhasan1@gmail.com?subject=Portfolio%20Contact%20-%20QA%20Opportunity&body=Hi%20MD%20Mazidul%20Hasan,%0D%0A%0D%0AI%20came%20across%20your%20portfolio%20and%20would%20like%20to%20discuss:%0D%0A%0D%0A-%20[Your%20reason%20here]%0D%0A%0D%0ABest%20regards,%0D%0A[Your%20name]"
+            class="btn-primary contact-action-btn">
+            <i class="fas fa-envelope"></i> Email Me Directly
+          </a>
+
+          <a href="https://www.linkedin.com/in/md-mazidul-hasan-rumman/" target="_blank"
+            class="btn-primary contact-action-btn linkedin-btn">
+            <i class="fab fa-linkedin"></i> Message on LinkedIn
+          </a>
+
+          <button onclick="copyEmail()" class="btn-primary contact-action-btn copy-btn">
+            <i class="fas fa-copy"></i> Copy Email Address
+          </button>
+        </div>
+
+        <!-- Professional Presence - Right after buttons -->
+        <div class="professional-presence">
+          <h4 class="presence-title">
+            <i class="fas fa-satellite-dish"></i>
+            Professional Presence
+          </h4>
+
+          <div class="contact-connections">
+            <a href="https://github.com/MazidulHasan" target="_blank" class="social-btn github"
+              data-tooltip="GitHub Profile">
+              <i class="fab fa-github"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/in/md-mazidul-hasan-rumman/" target="_blank" class="social-btn linkedin"
+              data-tooltip="LinkedIn Profile">
+              <i class="fab fa-linkedin"></i>
+            </a>
+
+            <a href="https://medium.com/@md.mazidulhasan1" target="_blank" class="social-btn medium"
+              data-tooltip="Medium Blog">
+              <i class="fab fa-medium-m"></i>
+            </a>
+
+            <a href="mailto:md.mazidulhasan1@gmail.com?subject=Portfolio%20Contact%20-%20QA%20Opportunity&body=Hi%20MD%20Mazidul%20Hasan,%0D%0A%0D%0AI%20came%20across%20your%20portfolio%20and%20would%20like%20to%20discuss:%0D%0A%0D%0A-%20[Your%20reason%20here]%0D%0A%0D%0ABest%20regards,%0D%0A[Your%20name]"
+              target="_blank" class="social-btn medium" data-tooltip="Email">
+              <i class="fas fa-envelope"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Status at the bottom -->
+        <div class="connection-status">
+          <i class="fas fa-wifi status-icon"></i>
+          All endpoints: <strong>ONLINE</strong> | Response time:
+          <strong>&lt; 24h</strong>
+        </div>
+      </div>
+
+      <!-- Right Side: Message Form -->
+      <div class="contact-form">
+        <h4 class="form-title">
+          <i class="fas fa-paper-plane"></i>
+          Send Me a Message
+        </h4>
+
+        <!-- Formspree form -->
+        <form action="https://formspree.io/f/xbdlnzeq" method="POST" id="contactForm">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="_replyto" required />
+          </div>
+          <div class="form-group">
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="e.g., QA Opportunity, Collaboration, etc." />
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell me about your project, opportunity, or question..."
+              required></textarea>
+          </div>
+          <input type="hidden" name="_subject" value="New contact from portfolio!" />
+          <button type="submit" class="btn-primary">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
