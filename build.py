@@ -11,6 +11,7 @@ section_files = [
     "06_projects.html",
     "07_learning.html",
     "08_medium.html",
+    "09_linkedin.html",
     "09_contact.html",
     "10_footer.html"
 ]

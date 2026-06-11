@@ -1,0 +1,4 @@
+# Local video demos should be hosted externally, e.g. YouTube or Cloudinary.
+*.mp4
+*.mov
+*.webm

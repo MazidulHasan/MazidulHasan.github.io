@@ -387,6 +387,93 @@ body {
   opacity: 0.8;
 }
 
+#linkedin-highlights .carousel-item {
+  width: 100%;
+  height: 560px;
+}
+
+#linkedin-highlights .carousel-wrapper {
+  border-radius: 20px;
+}
+
+#linkedin-highlights .carousel-track {
+  gap: 30px;
+}
+
+.linkedin-video-post {
+  display: grid !important;
+  grid-template-columns: minmax(520px, 1.12fr) minmax(360px, 0.88fr);
+  box-shadow: 0 16px 40px rgba(0, 119, 181, 0.12);
+}
+
+.linkedin-video-preview {
+  background: #05070d;
+  height: 100% !important;
+  min-height: 420px;
+  border-bottom: 0;
+}
+
+.linkedin-video-preview video,
+.linkedin-video-preview iframe {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  background: #05070d;
+}
+
+.linkedin-video-preview iframe {
+  border: 0;
+}
+
+#linkedin-highlights .post-content h4 {
+  color: var(--text);
+}
+
+#linkedin-highlights .post-content {
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.linkedin-proof-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.linkedin-proof-grid div {
+  background: rgba(0, 119, 181, 0.08);
+  border: 1px solid rgba(0, 119, 181, 0.16);
+  border-radius: 12px;
+  padding: 14px;
+}
+
+.linkedin-proof-grid strong,
+.linkedin-proof-grid span {
+  display: block;
+}
+
+.linkedin-proof-grid strong {
+  color: #0077b5;
+  font-size: 0.9rem;
+  margin-bottom: 6px;
+}
+
+.linkedin-proof-grid span {
+  color: var(--text);
+  opacity: 0.78;
+  font-size: 0.84rem;
+  line-height: 1.45;
+}
+
+#linkedin-highlights .post-excerpt {
+  flex: 0 0 auto;
+  display: block;
+  margin-bottom: 14px;
+  overflow: visible;
+}
+
 .container {
   max-width: none;
   margin: 0;
@@ -472,7 +559,7 @@ body {
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 32px;
+  gap: 24px;
 }
 
 .nav-menu a {
@@ -1839,7 +1926,7 @@ h2 {
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
   margin-top: 32px;
 }
@@ -1884,6 +1971,59 @@ h2 {
   font-weight: 600;
   margin: 0;
   color: var(--text);
+}
+
+.skill-category-card {
+  align-items: stretch;
+  gap: 18px;
+  min-height: 100%;
+  text-align: left;
+}
+
+.skill-category-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.skill-category-header i {
+  flex: 0 0 auto;
+}
+
+.skill-category-header h4 {
+  font-size: 1rem;
+  line-height: 1.35;
+}
+
+.skill-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-pill {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  padding: 7px 11px;
+  border-radius: 999px;
+  background: rgba(139, 92, 246, 0.08);
+  border: 1px solid rgba(139, 92, 246, 0.18);
+  color: var(--text);
+  font-size: 0.82rem;
+  font-weight: 600;
+  line-height: 1.2;
+  transition: all 0.3s ease;
+}
+
+.skill-category-card:hover .skill-pill {
+  border-color: rgba(139, 92, 246, 0.32);
+}
+
+.skill-pill:hover {
+  color: var(--accent);
+  background: rgba(139, 92, 246, 0.14);
+  transform: translateY(-1px);
 }
 
 .skill-level {
@@ -3166,6 +3306,18 @@ h2 {
 
 /* Tablet styles */
 @media (max-width: 1024px) {
+  .linkedin-video-post {
+    grid-template-columns: 1fr;
+  }
+
+  .linkedin-video-preview {
+    min-height: 320px;
+  }
+
+  .linkedin-proof-grid {
+    grid-template-columns: 1fr;
+  }
+
   .contact-grid {
     grid-template-columns: 1fr;
     gap: 24px;
@@ -3295,8 +3447,22 @@ h2 {
   }
 
   .skills-grid {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    grid-template-columns: 1fr;
     gap: 16px;
+  }
+
+  .skill-category-card {
+    padding: 18px;
+  }
+
+  .skill-list {
+    gap: 8px;
+  }
+
+  .skill-pill {
+    min-height: 30px;
+    padding: 6px 10px;
+    font-size: 0.78rem;
   }
 
   .stats-grid {
@@ -3306,6 +3472,10 @@ h2 {
 
   .card {
     padding: 24px;
+  }
+
+  #linkedin-highlights .carousel-item {
+    height: 760px;
   }
 
   .contact-form {
@@ -3343,6 +3513,14 @@ h2 {
 
   .card {
     padding: 20px;
+  }
+
+  #linkedin-highlights .carousel-item {
+    height: 780px;
+  }
+
+  .linkedin-video-preview {
+    min-height: 220px;
   }
 
   .contact-form {

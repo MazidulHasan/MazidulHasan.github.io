@@ -139,8 +139,8 @@ function updateStatsCounters() {
   );
   const projectCount = projectCards.length;
 
-  // Count skills (skill-cards)
-  const skillTags = document.querySelectorAll(".skill-card");
+  // Count individual skills listed in the skills section.
+  const skillTags = document.querySelectorAll("#skills .skill-pill");
   const skillCount = skillTags.length;
 
   // Update the counters with animation
@@ -523,6 +523,8 @@ class SmartCarousel {
   }
 
   getItemsPerView() {
+    if (this.container.id === "linkedinCarousel") return 1;
+
     // Use window.innerWidth to match CSS media queries exactly
     const viewportWidth = window.innerWidth;
     if (viewportWidth >= 1200) return 3;
@@ -577,8 +579,8 @@ class SmartCarousel {
 
     let slideDistance;
     if (this.itemsPerView === 1) {
-      // Mobile: each slide should move container width + gap (20px gap on mobile)
-      slideDistance = containerWidth + 20;
+      const singleItemGap = this.container.id === "linkedinCarousel" ? 30 : 20;
+      slideDistance = containerWidth + singleItemGap;
     } else {
       // Desktop/tablet: calculate with gaps
       const gap = 30;
@@ -657,6 +659,13 @@ function navigateCarousel(carouselId, direction) {
 // Initialize carousels on page load
 document.addEventListener("DOMContentLoaded", () => {
   window.carousels = {};
+
+  // Initialize Learning carousel
+  if (document.getElementById("learningCarousel")) {
+    window.carousels["learningCarousel"] = new SmartCarousel(
+      "learningCarousel"
+    );
+  }
 
   // Initialize LinkedIn carousel
   if (document.getElementById("linkedinCarousel")) {
