@@ -669,16 +669,9 @@ body {
 
 .hero {
   height: 100vh;
-  background: radial-gradient(circle at 20% 80%,
-      rgba(198, 154, 119, 0.3) 0%,
-      transparent 50%),
-    radial-gradient(circle at 80% 20%,
-      rgba(246, 182, 92, 0.2) 0%,
-      transparent 50%),
-    radial-gradient(circle at 40% 40%,
-      rgba(246, 143, 59, 0.1) 0%,
-      transparent 50%),
-    linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+  background:
+    radial-gradient(circle at 50% 42%, rgba(139, 92, 246, 0.12), transparent 34%),
+    linear-gradient(145deg, #080b16 0%, #101429 48%, #0a1020 100%);
   position: relative;
   overflow: hidden;
   display: flex;
@@ -690,68 +683,95 @@ body {
   max-width: 100vw;
 }
 
-/* Abstract geometric background elements */
+/* Subtle technical grid */
 .hero::before {
   content: "";
   position: absolute;
-  top: -30%;
-  right: -10%;
-  width: 60%;
-  height: 120%;
-  background: conic-gradient(from 180deg at 50% 50%,
-      rgba(246, 182, 92, 0.1) 0deg,
-      rgba(246, 143, 59, 0.05) 90deg,
-      transparent 180deg,
-      rgba(198, 154, 119, 0.08) 270deg,
-      rgba(246, 182, 92, 0.1) 360deg);
-  border-radius: 50%;
-  animation: float 20s ease-in-out infinite;
+  inset: -20%;
+  background-image:
+    linear-gradient(rgba(139, 92, 246, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(139, 92, 246, 0.055) 1px, transparent 1px);
+  background-size: 72px 72px;
+  mask-image: radial-gradient(circle at center, black 16%, transparent 68%);
+  -webkit-mask-image: radial-gradient(circle at center, black 16%, transparent 68%);
+  transform: perspective(600px) rotateX(58deg) translateY(16%);
+  transform-origin: center;
+  animation: heroGridDrift 16s linear infinite;
+  will-change: background-position;
   z-index: 1;
 }
 
+/* Slow aurora light */
 .hero::after {
   content: "";
   position: absolute;
-  bottom: -20%;
-  left: -10%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(45deg,
-      rgba(139, 92, 246, 0.06) 0%,
-      transparent 30%,
-      rgba(59, 130, 246, 0.04) 60%,
-      transparent 100%);
+  width: 70vw;
+  height: 70vw;
+  top: 50%;
+  left: 50%;
+  background: conic-gradient(from 120deg,
+      transparent 0deg,
+      rgba(59, 130, 246, 0.08) 70deg,
+      rgba(139, 92, 246, 0.13) 135deg,
+      transparent 210deg,
+      rgba(34, 211, 238, 0.06) 285deg,
+      transparent 360deg);
+  filter: blur(70px);
   border-radius: 50%;
-  animation: float 25s ease-in-out infinite reverse;
+  opacity: 0.72;
+  animation: heroAurora 14s ease-in-out infinite alternate;
+  will-change: transform, opacity;
   z-index: 1;
 }
 
-@keyframes float {
+@keyframes heroGridDrift {
+  0% {
+    background-position: 0 0;
+  }
 
-  0%,
   100% {
-    transform: translateY(0px) rotate(0deg);
-  }
-
-  33% {
-    transform: translateY(-30px) rotate(120deg);
-  }
-
-  66% {
-    transform: translateY(20px) rotate(240deg);
+    background-position: 72px 36px;
   }
 }
 
-/* Additional floating elements */
+@keyframes heroAurora {
+  from {
+    opacity: 0.55;
+    transform: translate(-52%, -48%) rotate(-8deg) scale(0.92);
+  }
+
+  to {
+    opacity: 0.82;
+    transform: translate(-48%, -52%) rotate(12deg) scale(1.06);
+  }
+}
+
+/* Quiet orbital lines */
 .hero-bg-element {
   position: absolute;
-  background: radial-gradient(circle,
-      rgba(139, 92, 246, 0.08) 0%,
-      rgba(59, 130, 246, 0.04) 50%,
-      transparent 70%);
+  top: 50%;
+  left: 50%;
+  width: min(72vw, 820px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(139, 92, 246, 0.12);
   border-radius: 50%;
-  animation: floatRandom 15s ease-in-out infinite;
+  transform: translate(-50%, -50%);
+  animation: heroOrbit 24s linear infinite;
+  will-change: transform;
   z-index: 1;
+}
+
+.hero-bg-element::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(167, 139, 250, 0.72);
+  box-shadow: 0 0 14px rgba(139, 92, 246, 0.5);
+  animation: heroOrbitMarker 2.8s ease-in-out infinite;
 }
 
 /* Add subtle grain texture overlay */
@@ -776,50 +796,83 @@ body {
 }
 
 .hero-bg-element:nth-child(1) {
-  top: 20%;
-  left: 10%;
-  width: 100px;
-  height: 100px;
-  animation-delay: -2s;
+  width: min(74vw, 840px);
+  height: min(58vw, 660px);
+  animation-duration: 24s;
 }
 
 .hero-bg-element:nth-child(2) {
-  top: 60%;
-  right: 15%;
-  width: 150px;
-  height: 150px;
-  animation-delay: -8s;
+  width: min(56vw, 640px);
+  height: min(68vw, 760px);
+  border-color: rgba(59, 130, 246, 0.1);
+  animation-duration: 19s;
+  animation-direction: reverse;
+}
+
+.hero-bg-element:nth-child(2)::after {
+  left: 24%;
+  background: rgba(96, 165, 250, 0.72);
+  box-shadow: 0 0 14px rgba(59, 130, 246, 0.5);
+  animation-delay: -0.9s;
 }
 
 .hero-bg-element:nth-child(3) {
-  bottom: 20%;
-  left: 20%;
-  width: 80px;
-  height: 80px;
-  animation-delay: -5s;
+  width: min(40vw, 460px);
+  height: min(32vw, 360px);
+  border-style: dashed;
+  border-color: rgba(34, 211, 238, 0.1);
+  animation-duration: 15s;
 }
 
-@keyframes floatRandom {
+.hero-bg-element:nth-child(3)::after {
+  left: 72%;
+  background: rgba(103, 232, 249, 0.7);
+  box-shadow: 0 0 14px rgba(34, 211, 238, 0.45);
+  animation-delay: -1.7s;
+}
 
+@keyframes heroOrbit {
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes heroOrbitMarker {
   0%,
   100% {
-    transform: translate(0, 0) scale(1);
-    opacity: 0.3;
-  }
-
-  25% {
-    transform: translate(20px, -30px) scale(1.1);
-    opacity: 0.5;
+    opacity: 0.45;
+    transform: scale(0.8);
   }
 
   50% {
-    transform: translate(-15px, 20px) scale(0.9);
-    opacity: 0.4;
+    opacity: 1;
+    transform: scale(1.25);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero::before {
+    animation-duration: 28s;
   }
 
-  75% {
-    transform: translate(25px, 10px) scale(1.05);
-    opacity: 0.6;
+  .hero::after {
+    animation-duration: 24s;
+  }
+
+  .hero-bg-element:nth-child(1) {
+    animation-duration: 38s;
+  }
+
+  .hero-bg-element:nth-child(2) {
+    animation-duration: 32s;
+  }
+
+  .hero-bg-element:nth-child(3) {
+    animation-duration: 26s;
+  }
+
+  .hero-bg-element::after {
+    animation-duration: 4.5s;
   }
 }
 
@@ -1976,15 +2029,77 @@ h2 {
 
 .skill-category-card {
   align-items: stretch;
-  gap: 18px;
+  gap: 16px;
   min-height: 100%;
-  text-align: left;
+  text-align: center;
+  background:
+    radial-gradient(circle at top right, rgba(139, 92, 246, 0.12), transparent 38%),
+    var(--card);
+}
+
+.skill-category-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 25%, rgba(139, 92, 246, 0.1) 50%, transparent 75%);
+  transform: translateX(-120%);
+  pointer-events: none;
+}
+
+#skills.skills-motion-enabled .skill-category-card {
+  opacity: 0;
+  transform: translateY(24px) scale(0.98);
+}
+
+#skills.skills-motion-enabled.skills-animate .skill-category-card {
+  animation: skillCardReveal 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--card-delay, 0s);
+}
+
+#skills.skills-motion-enabled .skill-pill {
+  opacity: 0;
+  filter: blur(3px);
+  transform: translateY(12px) scale(0.94);
+}
+
+#skills.skills-motion-enabled.skills-animate .skill-pill {
+  animation: skillPillReveal 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  animation-delay: var(--pill-delay, 0s);
+}
+
+#skills.skills-animate .skill-category-card::before {
+  animation: skillCardSweep 0.8s ease-out forwards;
+  animation-delay: var(--sweep-delay, 0s);
+}
+
+#skills.skills-animation-complete .skill-category-card,
+#skills.skills-animation-complete .skill-pill {
+  opacity: 1;
+  filter: none;
+  animation: none;
+  transform: none;
+}
+
+#skills.skills-animation-complete .skill-category-card::before {
+  animation: none;
+  transform: translateX(120%);
+}
+
+#skills.skills-animation-complete .skill-category-card:hover {
+  transform: translateY(-4px);
+}
+
+#skills.skills-animation-complete .skill-pill:hover {
+  transform: translateY(-2px);
 }
 
 .skill-category-header {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 12px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid rgba(139, 92, 246, 0.16);
 }
 
 .skill-category-header i {
@@ -1997,10 +2112,12 @@ h2 {
 }
 
 .skill-list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 10px;
-  align-content: start;
+  align-content: center;
+  align-items: center;
   flex: 1;
 }
 
@@ -2008,10 +2125,9 @@ h2 {
   display: inline-flex;
   align-items: center;
   gap: 7px;
-  width: 100%;
   min-height: 32px;
-  padding: 7px 11px;
-  border-radius: 10px;
+  padding: 8px 12px;
+  border-radius: 999px;
   background: rgba(139, 92, 246, 0.08);
   border: 1px solid rgba(139, 92, 246, 0.18);
   color: var(--text);
@@ -2019,10 +2135,6 @@ h2 {
   font-weight: 600;
   line-height: 1.2;
   transition: all 0.3s ease;
-}
-
-.skill-pill:last-child:nth-child(odd) {
-  grid-column: 1 / -1;
 }
 
 .skill-pill i {
@@ -2040,7 +2152,56 @@ h2 {
 .skill-pill:hover {
   color: var(--accent);
   background: rgba(139, 92, 246, 0.14);
-  transform: translateY(-1px);
+  border-color: rgba(139, 92, 246, 0.48);
+  box-shadow: 0 6px 16px rgba(139, 92, 246, 0.12);
+  transform: translateY(-2px);
+}
+
+@keyframes skillCardReveal {
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes skillPillReveal {
+  0% {
+    opacity: 0;
+    filter: blur(3px);
+    transform: translateY(12px) scale(0.94);
+  }
+
+  70% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(-2px) scale(1.02);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes skillCardSweep {
+  to {
+    transform: translateX(120%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #skills.skills-motion-enabled.skills-animate .skill-category-card {
+    animation-duration: 0.8s;
+  }
+
+  #skills.skills-motion-enabled.skills-animate .skill-pill {
+    animation-duration: 0.65s;
+  }
+
+  #skills.skills-animate .skill-category-card::before {
+    animation-duration: 1.1s;
+  }
 }
 
 .skill-level {
@@ -3517,14 +3678,6 @@ h2 {
 }
 
 @media (max-width: 480px) {
-  .skill-list {
-    grid-template-columns: 1fr;
-  }
-
-  .skill-pill:last-child:nth-child(odd) {
-    grid-column: auto;
-  }
-
   .hero {
     padding: 40px 16px 30px;
     min-height: 100vh;

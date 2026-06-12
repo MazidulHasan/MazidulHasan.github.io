@@ -287,16 +287,9 @@ function showCopySuccess() {
 let lastScrollTop = 0;
 
 window.addEventListener("scroll", function () {
-  const hero = document.querySelector(".hero");
   const scrollY = window.scrollY;
-  const rate = scrollY * -0.5;
   const scrollProgress = document.getElementById("scrollProgress");
   const scrollToTopBtn = document.getElementById("scrollToTop");
-
-  // Parallax effect for hero
-  if (hero) {
-    hero.style.transform = `translateY(${rate}px)`;
-  }
 
   // Scroll progress bar
   const winHeight =
@@ -390,17 +383,58 @@ document.addEventListener("DOMContentLoaded", function () {
     observer.observe(element);
   });
 
-  // Initialize skill card animations - DISABLED to prevent floating
-  // const skillTags = document.querySelectorAll(".skill-tag");
-  // skillTags.forEach((tag, index) => {
-  //   tag.style.opacity = "0";
-  //   tag.style.transform = "translateY(20px)";
-  //   tag.style.transition = `all 0.6s ease ${index * 0.05}s`;
-  // });
+  prepareSkillAnimations();
 
   // Initialize SQA scroll animations
   initScrollAnimations();
 });
+
+function prepareSkillAnimations() {
+  const skillsSection = document.getElementById("skills");
+  if (!skillsSection) {
+    return;
+  }
+
+  skillsSection.classList.add("skills-motion-enabled");
+
+  let skillIndex = 0;
+
+  skillsSection.querySelectorAll(".skill-category-card").forEach((card, cardIndex) => {
+    const cardDelay = cardIndex * 0.1;
+    card.style.setProperty("--card-delay", `${cardDelay}s`);
+    card.style.setProperty("--sweep-delay", `${cardDelay + 0.28}s`);
+
+    card.querySelectorAll(".skill-pill").forEach((pill) => {
+      pill.style.setProperty(
+        "--pill-delay",
+        `${0.28 + skillIndex * 0.04}s`
+      );
+      skillIndex += 1;
+    });
+  });
+
+  const skillGrid = skillsSection.querySelector(".skills-grid");
+  const skillObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach((entry) => {
+      if (!entry.isIntersecting) {
+        return;
+      }
+
+      skillsSection.classList.add("skills-animate");
+      setTimeout(() => {
+        skillsSection.classList.add("skills-animation-complete");
+      }, 2700);
+      observer.unobserve(entry.target);
+    });
+  }, {
+    threshold: 0.18,
+    rootMargin: "0px 0px -8% 0px",
+  });
+
+  if (skillGrid) {
+    skillObserver.observe(skillGrid);
+  }
+}
 
 // Scroll Animation Observer for SQA sections
 function initScrollAnimations() {
@@ -434,21 +468,6 @@ function initScrollAnimations() {
                 }, index * 600); // Increased delay between metrics
               });
             }, 800); // Increased initial delay
-          }
-
-          if (title.includes("Technical Skills")) {
-            // Only animate the network nodes in the title, no skill tag floating
-            setTimeout(() => {
-              const nodes =
-                entry.target.querySelectorAll(".network-node");
-              nodes.forEach((node, index) => {
-                setTimeout(() => {
-                  node.style.animation =
-                    "networkPulse 1s ease-in-out infinite";
-                }, index * 200);
-              });
-            }, 300);
-            // Remove any floating animations for skill tags
           }
 
           if (title.includes("What I Test For")) {
