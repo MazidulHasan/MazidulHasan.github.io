@@ -1,0 +1,363 @@
+/* Responsive overrides for all sections */
+
+/* Large Tablet: 2 posts */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .carousel-item {
+    width: calc((100% - 30px) / 2);
+    height: 520px;
+    /* Maintain fixed height on tablet */
+  }
+}
+
+/* Mobile: 1 post */
+@media (max-width: 767px) {
+  .carousel-item {
+    width: 100%;
+    height: 520px;
+    /* Maintain fixed height on mobile */
+  }
+
+  /* Medium Blog needs extra height for proper button spacing */
+  #medium-blog .carousel-item {
+    height: 520px;
+    /* Consistent height for Medium articles */
+  }
+
+  .carousel-track {
+    gap: 20px;
+  }
+
+  .carousel-nav {
+    width: 45px;
+    height: 45px;
+  }
+
+  .carousel-nav.prev {
+    left: -22px;
+  }
+
+  .carousel-nav.next {
+    right: -22px;
+  }
+
+  .carousel-badges {
+    gap: 6px;
+  }
+
+  .carousel-badge {
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+/* Tablet styles */
+@media (max-width: 1024px) {
+  .linkedin-video-post {
+    grid-template-columns: 1fr;
+  }
+
+  .linkedin-video-preview {
+    min-height: 320px;
+  }
+
+  .linkedin-proof-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .contact-form {
+    margin-top: 0;
+  }
+}
+
+/* Tablet styles */
+@media (max-width: 768px) and (min-width: 481px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 25px;
+  }
+
+  .contact-info-container {
+    padding: 32px;
+    order: 1;
+  }
+
+  .contact-form {
+    padding: 32px;
+    order: 2;
+  }
+
+  .contact-connections {
+    gap: 14px;
+  }
+
+  .social-btn {
+    width: 52px;
+    height: 52px;
+    font-size: 19px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  /* Mobile Navigation */
+  .nav-menu {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .nav-container {
+    padding: 0;
+  }
+
+  .hero {
+    padding: 130px 20px 40px;
+    /* Increased top padding for fixed nav */
+    min-height: 100vh;
+    height: 100vh;
+  }
+
+  .hero-content {
+    max-width: 100%;
+  }
+
+  .hero .subtitle {
+    white-space: normal;
+    max-width: 100%;
+  }
+
+  /* Mobile carousel adjustments */
+  .carousel-item {
+    height: 580px;
+    /* Increased height for mobile to accommodate all content */
+  }
+
+  .carousel-item .test-card {
+    padding: 18px;
+  }
+
+  .carousel-item .test-card .project-description {
+    margin-bottom: 10px;
+    min-height: 60px;
+    /* Reduced min-height for mobile */
+  }
+
+  .carousel-item .test-card .tech-badges {
+    margin-top: 6px;
+    max-height: 100px;
+    /* Increased max-height for mobile to show all badges */
+  }
+
+  .profile-pic {
+    width: 150px;
+    height: 150px;
+  }
+
+  h1 {
+    font-size: clamp(2rem, 8vw, 2.5rem);
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+  }
+
+  .hero-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .test-cards {
+    flex-direction: column;
+  }
+
+  .test-cards .test-card {
+    flex: 1 1 auto;
+    max-width: none;
+  }
+
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .skill-category-card {
+    padding: 18px;
+  }
+
+  .skill-list {
+    gap: 8px;
+  }
+
+  .skill-pill {
+    min-height: 30px;
+    padding: 6px 10px;
+    font-size: 0.78rem;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+
+  .card {
+    padding: 24px;
+  }
+
+  #linkedin-highlights .carousel-item {
+    height: 760px;
+  }
+
+  .contact-form {
+    padding: 24px;
+  }
+
+  section {
+    margin-bottom: 60px;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    width: 100%;
+    justify-content: center;
+    margin: 8px 0;
+  }
+
+  .container {
+    max-width: 100%;
+    padding: 0 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    padding: 40px 16px 30px;
+    min-height: 100vh;
+    height: 100vh;
+  }
+
+  .profile-pic {
+    width: 120px;
+    height: 120px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  #linkedin-highlights .carousel-item {
+    height: 780px;
+  }
+
+  .linkedin-video-preview {
+    min-height: 220px;
+  }
+
+  .contact-form {
+    padding: 20px;
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .contact-info-container {
+    padding: 24px;
+    order: 1;
+  }
+
+  /* Extra small mobile carousel adjustments */
+  .carousel-item {
+    height: 620px;
+    /* Even more height for very small screens */
+  }
+
+  .carousel-item .test-card {
+    padding: 16px;
+  }
+
+  .carousel-item .test-card .tech-badges {
+    margin-top: 4px;
+    max-height: 120px;
+    /* More space for badges on small screens */
+    overflow: visible;
+    /* Allow badges to be fully visible */
+  }
+
+  .contact-form {
+    padding: 24px;
+    order: 2;
+  }
+
+  .contact-action-btn {
+    margin: 6px 0;
+  }
+
+  .medium-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .medium-article {
+    margin: 0 10px;
+  }
+
+  .medium-content {
+    padding: 20px;
+  }
+
+  .professional-presence {
+    padding-top: 20px;
+  }
+
+  .contact-connections {
+    gap: 12px;
+  }
+
+  .social-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 18px;
+  }
+
+  .stat-card {
+    padding: 20px 16px;
+  }
+
+  .skill-card {
+    padding: 16px;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .container {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+
+  section {
+    padding: 0 15px;
+  }
+}
+

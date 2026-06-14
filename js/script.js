@@ -1,15 +1,25 @@
-// Loading screen
-window.addEventListener("load", function () {
+// Reveal the page as soon as the DOM is usable. Offscreen media can keep loading
+// without hiding the hero or consuming its entrance animation.
+document.addEventListener("DOMContentLoaded", function () {
   const loading = document.getElementById("loading");
-  setTimeout(() => {
+  requestAnimationFrame(() => {
+    const startHeroAnimation = () => {
+      document.body.classList.add("page-loaded");
+    };
+
+    loading.addEventListener("transitionend", startHeroAnimation, {
+      once: true,
+    });
     loading.classList.add("hidden");
+    // Fallback for browsers or user settings that suppress transitions.
+    setTimeout(startHeroAnimation, 600);
     // Animate skill progress bars
     animateSkillBars();
     // Initialize navigation
     initNavigation();
     // Auto-update stats counters
     updateStatsCounters();
-  }, 800);
+  });
 });
 
 // Navigation functionality

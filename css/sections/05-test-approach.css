@@ -1,0 +1,139 @@
+/* Testing approach cards and shared action buttons */
+
+.test-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.test-cards .test-card {
+  flex: 1 1 300px;
+  max-width: 380px;
+  min-width: 300px;
+}
+
+.test-card {
+  background: var(--card);
+  padding: 32px;
+  border-radius: 16px;
+  border: 1px solid var(--border);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.test-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.test-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent);
+  box-shadow: 0 12px 24px rgba(139, 92, 246, 0.15);
+}
+
+.test-card:hover::before {
+  transform: scaleX(1);
+}
+
+.test-card:hover .fas {
+  transform: scale(1.2) rotate(5deg);
+  color: var(--accent) !important;
+  text-shadow: 0 0 8px rgba(139, 92, 246, 0.6);
+}
+
+.test-card .fas {
+  transition: all 0.3s ease;
+}
+
+.test-card strong {
+  transition: color 0.3s ease;
+  color: var(--text);
+  font-size: 1.1rem;
+}
+
+.test-card:hover strong {
+  color: var(--accent);
+}
+
+.test-card p {
+  color: var(--muted);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.contact a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.contact a:hover {
+  text-decoration: underline;
+}
+
+/* Enhanced Button Styles */
+.btn-primary:not(.contact-action-btn) {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  margin: 8px 4px;
+  position: relative;
+  overflow: visible;
+  letter-spacing: 0.025em;
+}
+
+.btn-primary:not(.contact-action-btn)::before {
+  display: none;
+}
+
+.btn-primary:not(.contact-action-btn):hover {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.5);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn-primary:not(.contact-action-btn):active {
+  transform: translateY(-1px);
+}
+
+/* LinkedIn Journey Button */
+.learning-journey-btn {
+  background: rgba(0, 119, 181, 0.9) !important;
+  border-color: rgba(0, 119, 181, 0.7) !important;
+}
+
+.learning-journey-btn:hover {
+  background: rgba(0, 119, 181, 1) !important;
+  border-color: rgba(0, 119, 181, 0.9) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 119, 181, 0.3);
+}
+

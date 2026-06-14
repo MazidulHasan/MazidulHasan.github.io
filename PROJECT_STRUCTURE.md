@@ -34,6 +34,26 @@ MazidulHasan.github.io/
 
 To edit content, update the corresponding HTML file inside the `sections/` directory.
 
+### CSS organization
+
+Styles are split across `css/sections/` by responsibility. Edit the matching module instead of adding rules to `css/style.css`, which now serves only as an architecture reference.
+
+| File | Responsibility |
+| --- | --- |
+| `00-foundation.css` | Theme variables, reset, loader, and shared utilities |
+| `01-navigation.css` | Desktop and mobile navigation |
+| `02-hero.css` | Hero layout, effects, and name animation |
+| `03-about.css` | About content, social links, badges, cards, and grids |
+| `04-skills.css` | Skills cards, pills, and animations |
+| `05-test-approach.css` | Testing approach cards and action buttons |
+| `06-07-carousels.css` | Shared projects and learning carousel behavior |
+| `08-medium.css` | Medium article cards |
+| `09-linkedin.css` | LinkedIn cards and video highlights |
+| `09-contact.css` | Contact form, professional presence, and statistics |
+| `10-responsive.css` | Cross-section responsive overrides |
+
+The stylesheet order in `sections/00_head.html` is intentional. Keep `10-responsive.css` last.
+
 ### Example: Adding a New Project
 1. Open `sections/06_projects.html`.
 2. Add the content (e.g., a new carousel badge and a carousel item card) to the existing code.

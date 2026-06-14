@@ -1,0 +1,329 @@
+/* About section, social links, badges, cards, and shared grids */
+
+/* Social/Contact Buttons */
+.contact-connections {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 1.4rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  border: 2px solid transparent;
+}
+
+.social-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg,
+      var(--accent),
+      rgba(0, 188, 212, 0.6));
+  opacity: 0.1;
+  transition: opacity 0.3s ease;
+  border-radius: 10px;
+}
+
+.social-btn:hover::before {
+  opacity: 0.2;
+}
+
+.social-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(0, 188, 212, 0.3);
+  border-color: var(--accent);
+}
+
+.social-btn.github {
+  background: #333;
+  color: white;
+}
+
+.social-btn.github:hover {
+  background: #24292e;
+  box-shadow: 0 8px 25px rgba(36, 41, 46, 0.4);
+}
+
+.social-btn.linkedin {
+  background: #0077b5;
+  color: white;
+}
+
+.social-btn.linkedin:hover {
+  background: #005885;
+  box-shadow: 0 8px 25px rgba(0, 119, 181, 0.4);
+}
+
+.social-btn.email {
+  background: var(--accent);
+  color: white;
+}
+
+.social-btn.email:hover {
+  background: color-mix(in srgb, var(--accent) 80%, white);
+}
+
+.social-btn.medium {
+  background: #00ab6c;
+  color: white;
+}
+
+.social-btn.medium:hover {
+  background: #00d084;
+  box-shadow: 0 4px 20px rgba(0, 171, 108, 0.3);
+}
+
+/* Tooltip for social buttons */
+.social-btn::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: -35px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--card);
+  color: var(--text);
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  border: 1px solid var(--accent);
+}
+
+.social-btn:hover::after {
+  opacity: 1;
+}
+
+.connection-status {
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--test-pass);
+  margin-top: 15px;
+  font-family: "Courier New", monospace;
+}
+
+/* Professional Tech Badges */
+.tech-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 15px;
+}
+
+.tech-badge {
+  background: linear-gradient(135deg,
+      rgba(139, 92, 246, 0.08),
+      rgba(59, 130, 246, 0.05));
+  border: 1px solid rgba(139, 92, 246, 0.2);
+  border-radius: 12px;
+  padding: 6px 12px;
+  font-size: 0.75rem;
+  font-family: "Segoe UI", sans-serif;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  text-transform: capitalize;
+  letter-spacing: 0.3px;
+  position: relative;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 8px rgba(139, 92, 246, 0.1);
+}
+
+.tech-badge::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(139, 92, 246, 0.1),
+      transparent);
+  transition: left 0.6s ease;
+}
+
+.tech-badge:hover::before {
+  left: 100%;
+}
+
+.tech-badge:hover {
+  background: linear-gradient(135deg,
+      rgba(139, 92, 246, 0.15),
+      rgba(59, 130, 246, 0.1));
+  border-color: rgba(139, 92, 246, 0.4);
+  color: var(--accent);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(139, 92, 246, 0.2);
+}
+
+.tech-badge i {
+  font-size: 0.8rem;
+  opacity: 0.8;
+  transition: all 0.3s ease;
+}
+
+/* Premium tech badge category styles */
+.tech-badge.language {
+  background: linear-gradient(135deg, rgba(243, 156, 18, 0.08), rgba(230, 126, 34, 0.05));
+  border-color: rgba(243, 156, 18, 0.3);
+}
+
+.tech-badge.language:hover {
+  background: linear-gradient(135deg, rgba(243, 156, 18, 0.15), rgba(230, 126, 34, 0.1));
+  border-color: rgba(243, 156, 18, 0.5);
+  color: #f39c12;
+  box-shadow: 0 8px 25px rgba(243, 156, 18, 0.2);
+}
+
+.tech-badge.testing {
+  background: linear-gradient(135deg, rgba(39, 174, 96, 0.08), rgba(46, 204, 113, 0.05));
+  border-color: rgba(39, 174, 96, 0.3);
+}
+
+.tech-badge.testing:hover {
+  background: linear-gradient(135deg, rgba(39, 174, 96, 0.15), rgba(46, 204, 113, 0.1));
+  border-color: rgba(39, 174, 96, 0.5);
+  color: #27ae60;
+  box-shadow: 0 8px 25px rgba(39, 174, 96, 0.2);
+}
+
+.tech-badge.security {
+  background: linear-gradient(135deg, rgba(231, 76, 60, 0.08), rgba(192, 57, 43, 0.05));
+  border-color: rgba(231, 76, 60, 0.3);
+}
+
+.tech-badge.security:hover {
+  background: linear-gradient(135deg, rgba(231, 76, 60, 0.15), rgba(192, 57, 43, 0.1));
+  border-color: rgba(231, 76, 60, 0.5);
+  color: #e74c3c;
+  box-shadow: 0 8px 25px rgba(231, 76, 60, 0.2);
+}
+
+.tech-badge.performance {
+  background: linear-gradient(135deg, rgba(155, 89, 182, 0.08), rgba(142, 68, 173, 0.05));
+  border-color: rgba(155, 89, 182, 0.3);
+}
+
+.tech-badge.performance:hover {
+  background: linear-gradient(135deg, rgba(155, 89, 182, 0.15), rgba(142, 68, 173, 0.1));
+  border-color: rgba(155, 89, 182, 0.5);
+  color: #9b59b6;
+  box-shadow: 0 8px 25px rgba(155, 89, 182, 0.2);
+}
+
+/* Enhanced Card Design */
+.card {
+  background: var(--card);
+  border-radius: 16px;
+  padding: 32px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(139, 92, 246, 0.15);
+  border-color: var(--accent);
+}
+
+.card:hover::before {
+  transform: scaleX(1);
+}
+
+/* Grid Layouts */
+.grid {
+  display: grid;
+  gap: 24px;
+  margin-top: 32px;
+}
+
+/* Keyword Highlighting */
+.highlight-keyword {
+  color: var(--text);
+  font-weight: 600;
+  transition: all 0.3s ease;
+  padding: 0;
+  border-radius: 0;
+  background: transparent;
+}
+
+/* Only highlight keywords inside cards when hovering over cards */
+.card:hover .highlight-keyword,
+.test-card:hover .highlight-keyword,
+.stat-card:hover .highlight-keyword,
+.linkedin-post:hover .highlight-keyword {
+  color: #8b5cf6;
+}
+
+.grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+/* Section Styling */
+section {
+  margin-bottom: 80px;
+  padding: 0 max(5%, 20px);
+  max-width: none;
+  width: 100%;
+}
+
+h2 {
+  font-size: clamp(2rem, 5vw, 2.5rem);
+  color: var(--text);
+  margin-bottom: 16px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  text-align: center;
+}
+
+.section-subtitle {
+  font-size: 1.25rem;
+  color: var(--text);
+  margin-bottom: 40px;
+  line-height: 1.6;
+  max-width: 700px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+

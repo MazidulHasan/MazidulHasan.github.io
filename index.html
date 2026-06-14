@@ -52,7 +52,18 @@
       }
     </script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <link rel="stylesheet" href="css/style.css">
+  <!-- CSS order is intentional: later files contain section and responsive overrides. -->
+  <link rel="stylesheet" href="css/sections/00-foundation.css">
+  <link rel="stylesheet" href="css/sections/09-linkedin.css">
+  <link rel="stylesheet" href="css/sections/01-navigation.css">
+  <link rel="stylesheet" href="css/sections/02-hero.css">
+  <link rel="stylesheet" href="css/sections/03-about.css">
+  <link rel="stylesheet" href="css/sections/04-skills.css">
+  <link rel="stylesheet" href="css/sections/05-test-approach.css">
+  <link rel="stylesheet" href="css/sections/08-medium.css">
+  <link rel="stylesheet" href="css/sections/09-contact.css">
+  <link rel="stylesheet" href="css/sections/06-07-carousels.css">
+  <link rel="stylesheet" href="css/sections/10-responsive.css">
 </head>
 
 <body>
@@ -117,10 +128,10 @@
 
       <div class="hero-content">
         <img src="media/profile.jpg" alt="MD Mazidul Hasan - Senior QA Automation Engineer" class="profile-pic"
-          loading="lazy" />
+          loading="eager" fetchpriority="high" decoding="async" />
         <h1 id="hero-name">MD Mazidul Hasan</h1>
         <p class="subtitle">
-          Test Automation | Framework Development | Continuous Integration
+          Senior QA Automation Engineer | AI Testing Specialist
         </p>
 
         <div class="hero-buttons">
@@ -861,7 +872,7 @@
           <div class="carousel-item">
             <div class="linkedin-post">
               <div class="post-preview">
-                <img src="media/Learning/manualTesting.jpg" alt="Manual Testing Foundations" />
+                <img src="media/Learning/manualTesting.jpg" alt="Manual Testing Foundations" loading="lazy" decoding="async" />
               </div>
               <div class="post-content">
                 <div class="post-meta-top">
@@ -890,7 +901,7 @@
           <div class="carousel-item">
             <div class="linkedin-post">
               <div class="post-preview">
-                <img src="media/Learning/qa-automation.jpeg" alt="Automation Journey" />
+                <img src="media/Learning/qa-automation.jpeg" alt="Automation Journey" loading="lazy" decoding="async" />
               </div>
               <div class="post-content">
                 <div class="post-meta-top">
@@ -916,7 +927,7 @@
           <div class="carousel-item">
             <div class="linkedin-post">
               <div class="post-preview">
-                <img src="media/Learning/java-automation.png" alt="Java Mastery" />
+                <img src="media/Learning/java-automation.png" alt="Java Mastery" loading="lazy" decoding="async" />
               </div>
               <div class="post-content">
                 <div class="post-meta-top">
@@ -941,7 +952,7 @@
           <div class="carousel-item">
             <div class="linkedin-post">
               <div class="post-preview">
-                <img src="media/Learning/selenium-webdriver.png" alt="Selenium WebDriver" />
+                <img src="media/Learning/selenium-webdriver.png" alt="Selenium WebDriver" loading="lazy" decoding="async" />
               </div>
               <div class="post-content">
                 <div class="post-meta-top">
@@ -966,7 +977,7 @@
           <div class="carousel-item">
             <div class="linkedin-post">
               <div class="post-preview">
-                <img src="media/Learning/postman.jpeg" alt="API Testing" />
+                <img src="media/Learning/postman.jpeg" alt="API Testing" loading="lazy" decoding="async" />
               </div>
               <div class="post-content">
                 <div class="post-meta-top">
@@ -993,7 +1004,7 @@
           <div class="carousel-item">
             <div class="linkedin-post">
               <div class="post-preview">
-                <img src="media/Learning/restAssured.png" alt="Rest Assured" />
+                <img src="media/Learning/restAssured.png" alt="Rest Assured" loading="lazy" decoding="async" />
               </div>
               <div class="post-content">
                 <div class="post-meta-top">
@@ -1018,7 +1029,7 @@
           <div class="carousel-item">
             <div class="linkedin-post">
               <div class="post-preview">
-                <img src="media/Learning/cypress.jpg" alt="Cypress" />
+                <img src="media/Learning/cypress.jpg" alt="Cypress" loading="lazy" decoding="async" />
               </div>
               <div class="post-content">
                 <div class="post-meta-top">
@@ -1042,7 +1053,7 @@
           <div class="carousel-item">
             <div class="linkedin-post">
               <div class="post-preview">
-                <img src="media/Learning/playwright.png" alt="Playwright" />
+                <img src="media/Learning/playwright.png" alt="Playwright" loading="lazy" decoding="async" />
               </div>
               <div class="post-content">
                 <div class="post-meta-top">
@@ -1067,7 +1078,7 @@
           <div class="carousel-item">
             <div class="linkedin-post">
               <div class="post-preview">
-                <img src="media/Learning/cicd.png" alt="CI/CD" />
+                <img src="media/Learning/cicd.png" alt="CI/CD" loading="lazy" decoding="async" />
               </div>
               <div class="post-content">
                 <div class="post-meta-top">
@@ -1092,7 +1103,7 @@
           <div class="carousel-item">
             <div class="linkedin-post">
               <div class="post-preview">
-                <img src="media/Learning/DockerLogo.png" alt="Docker and DevOps" />
+                <img src="media/Learning/DockerLogo.png" alt="Docker and DevOps" loading="lazy" decoding="async" />
               </div>
               <div class="post-content">
                 <div class="post-meta-top">
@@ -1117,7 +1128,7 @@
           <div class="carousel-item">
             <div class="linkedin-post">
               <div class="post-preview">
-                <img src="media/Learning/gatling.png" alt="Performance Testing Gatling" />
+                <img src="media/Learning/gatling.png" alt="Performance Testing Gatling" loading="lazy" decoding="async" />
               </div>
               <div class="post-content">
                 <div class="post-meta-top">
@@ -1142,7 +1153,7 @@
           <div class="carousel-item">
             <div class="linkedin-post">
               <div class="post-preview">
-                <img src="media/Learning/k6.jpg" alt="Performance Testing K6" />
+                <img src="media/Learning/k6.jpg" alt="Performance Testing K6" loading="lazy" decoding="async" />
               </div>
               <div class="post-content">
                 <div class="post-meta-top">
@@ -1167,7 +1178,7 @@
           <div class="carousel-item">
             <div class="linkedin-post">
               <div class="post-preview">
-                <img src="media/Learning/burpSuite.png" alt="Security Testing Burp" />
+                <img src="media/Learning/burpSuite.png" alt="Security Testing Burp" loading="lazy" decoding="async" />
               </div>
               <div class="post-content">
                 <div class="post-meta-top">
@@ -1192,7 +1203,7 @@
           <div class="carousel-item">
             <div class="linkedin-post">
               <div class="post-preview">
-                <img src="media/Learning/MPC.jpg" alt="Playwright MCP" />
+                <img src="media/Learning/MPC.jpg" alt="Playwright MCP" loading="lazy" decoding="async" />
               </div>
               <div class="post-content">
                 <div class="post-meta-top">
@@ -1217,7 +1228,7 @@
           <div class="carousel-item">
             <div class="linkedin-post">
               <div class="post-preview">
-                <img src="media/Learning/aiTools.jpg" alt="AI Automation Tools" />
+                <img src="media/Learning/aiTools.jpg" alt="AI Automation Tools" loading="lazy" decoding="async" />
               </div>
               <div class="post-content">
                 <div class="post-meta-top">
@@ -1243,7 +1254,7 @@
           <div class="carousel-item">
             <div class="linkedin-post">
               <div class="post-preview">
-                <img src="media/Learning/n8n.png" alt="N8N" />
+                <img src="media/Learning/n8n.png" alt="N8N" loading="lazy" decoding="async" />
               </div>
               <div class="post-content">
                 <div class="post-meta-top">
@@ -1268,7 +1279,7 @@
           <div class="carousel-item">
             <div class="linkedin-post">
               <div class="post-preview">
-                <img src="media/Learning/zapier.png" alt="Zapier" />
+                <img src="media/Learning/zapier.png" alt="Zapier" loading="lazy" decoding="async" />
               </div>
               <div class="post-content">
                 <div class="post-meta-top">
@@ -1293,7 +1304,7 @@
           <div class="carousel-item">
             <div class="linkedin-post">
               <div class="post-preview">
-                <img src="media/Learning/gemini_cli.jpg" alt="Gemini CLI" />
+                <img src="media/Learning/gemini_cli.jpg" alt="Gemini CLI" loading="lazy" decoding="async" />
               </div>
               <div class="post-content">
                 <div class="post-meta-top">
@@ -1317,7 +1328,7 @@
           <div class="carousel-item">
             <div class="linkedin-post">
               <div class="post-preview">
-                <img src="media/Learning/antigravity.jpg" alt="Antigravity" />
+                <img src="media/Learning/antigravity.jpg" alt="Antigravity" loading="lazy" decoding="async" />
               </div>
               <div class="post-content">
                 <div class="post-meta-top">
@@ -1342,7 +1353,7 @@
           <div class="carousel-item">
             <div class="linkedin-post">
               <div class="post-preview">
-                <img src="media/Learning/vibium.jpg" alt="Vibium" />
+                <img src="media/Learning/vibium.jpg" alt="Vibium" loading="lazy" decoding="async" />
               </div>
               <div class="post-content">
                 <div class="post-meta-top">
@@ -1367,7 +1378,7 @@
           <div class="carousel-item">
             <div class="linkedin-post">
               <div class="post-preview">
-                <img src="media/Learning/vibeCoding.jpg" alt="Vibe Coding" />
+                <img src="media/Learning/vibeCoding.jpg" alt="Vibe Coding" loading="lazy" decoding="async" />
               </div>
               <div class="post-content">
                 <div class="post-meta-top">
@@ -1392,7 +1403,7 @@
           <div class="carousel-item">
             <div class="linkedin-post">
               <div class="post-preview">
-                <img src="media/Learning/LangGraph_LangChain.png" alt="LangGraph & LangChain" />
+                <img src="media/Learning/LangGraph_LangChain.png" alt="LangGraph & LangChain" loading="lazy" decoding="async" />
               </div>
               <div class="post-content">
                 <div class="post-meta-top">
@@ -1417,7 +1428,7 @@
           <div class="carousel-item">
             <div class="linkedin-post">
               <div class="post-preview">
-                <img src="media/Learning/ollama_python.png" alt="RAG + Ollama" />
+                <img src="media/Learning/ollama_python.png" alt="RAG + Ollama" loading="lazy" decoding="async" />
               </div>
               <div class="post-content">
                 <div class="post-meta-top">
@@ -1443,7 +1454,7 @@
           <div class="carousel-item">
             <div class="linkedin-post">
               <div class="post-preview">
-                <img src="media/Learning/self-healing.png" alt="Self Healing Automation" />
+                <img src="media/Learning/self-healing.png" alt="Self Healing Automation" loading="lazy" decoding="async" />
               </div>
               <div class="post-content">
                 <div class="post-meta-top">
@@ -1508,7 +1519,7 @@
           <div class="carousel-item">
             <article class="medium-article">
               <div class="medium-image">
-                <img src="media/Medium Banners/github.jpeg" alt="How to Make Your First GitHub Contribution" />
+                <img src="media/Medium Banners/github.jpeg" alt="How to Make Your First GitHub Contribution" loading="lazy" decoding="async" />
               </div>
               <div class="medium-content">
                 <div class="medium-meta">
@@ -1539,7 +1550,7 @@
           <div class="carousel-item">
             <article class="medium-article">
               <div class="medium-image">
-                <img src="media/Medium Banners/pom.png" alt="Page Object Model (POM) in Playwright" />
+                <img src="media/Medium Banners/pom.png" alt="Page Object Model (POM) in Playwright" loading="lazy" decoding="async" />
               </div>
               <div class="medium-content">
                 <div class="medium-meta">
@@ -1570,7 +1581,7 @@
           <div class="carousel-item">
             <article class="medium-article">
               <div class="medium-image">
-                <img src="media/Medium Banners/codeSpaces.png"
+                <img src="media/Medium Banners/codeSpaces.png" loading="lazy" decoding="async"
                   alt="Using GitHub Codespaces as a Shared QA & Automation Lab" />
               </div>
               <div class="medium-content">
@@ -1602,7 +1613,7 @@
           <div class="carousel-item">
             <article class="medium-article">
               <div class="medium-image">
-                <img src="media/Medium Banners/manual_to_automation.jpeg" alt="Automation Awaits Manual Testers" />
+                <img src="media/Medium Banners/manual_to_automation.jpeg" alt="Automation Awaits Manual Testers" loading="lazy" decoding="async" />
               </div>
               <div class="medium-content">
                 <div class="medium-meta">
@@ -1633,7 +1644,7 @@
           <div class="carousel-item">
             <article class="medium-article">
               <div class="medium-image">
-                <img src="media/Medium Banners/DataDriven.png" alt="Data Driven Testing" />
+                <img src="media/Medium Banners/DataDriven.png" alt="Data Driven Testing" loading="lazy" decoding="async" />
               </div>
               <div class="medium-content">
                 <div class="medium-meta">
@@ -1698,7 +1709,7 @@
           <div class="carousel-item">
             <article class="linkedin-post linkedin-video-post">
               <div class="post-preview linkedin-video-preview">
-                <iframe
+                <iframe loading="lazy"
                   src="https://www.youtube.com/embed/yJffsKdejbM?rel=0&origin=https://mazidulhasan.github.io"
                   title="Mazidul QA Studio Chrome extension demo video"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -1757,7 +1768,7 @@
           <div class="carousel-item">
             <article class="linkedin-post linkedin-video-post">
               <div class="post-preview linkedin-video-preview">
-                <iframe
+                <iframe loading="lazy"
                   src="https://www.youtube.com/embed/SCB2P0O31j4?rel=0&origin=https://mazidulhasan.github.io"
                   title="AeroAPI demo video"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -1816,7 +1827,7 @@
           <div class="carousel-item">
             <article class="linkedin-post linkedin-video-post">
               <div class="post-preview linkedin-video-preview">
-                <iframe
+                <iframe loading="lazy"
                   src="https://www.youtube.com/embed/ZjggCOAN2Jc?rel=0&origin=https://mazidulhasan.github.io"
                   title="Multi-Agent QA Automation Framework demo video"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -1875,7 +1886,7 @@
           <div class="carousel-item">
             <article class="linkedin-post linkedin-video-post">
               <div class="post-preview linkedin-video-preview">
-                <iframe
+                <iframe loading="lazy"
                   src="https://www.youtube.com/embed/tN5q-bXNjVc?rel=0&origin=https://mazidulhasan.github.io"
                   title="TaklaType real-time multiplayer typing race demo video"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
